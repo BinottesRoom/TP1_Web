@@ -1,26 +1,26 @@
 <?php
 
-$content = "<table>
+$content = "<table class='bookmarks-header-layout'>
 <tr>
-        <th>
+        <th class='bookmark-Header'>
             Titre
         </th>
-        <th>
+        <th class='bookmark-Header'>
             Description
         </th>
-        <th>
+        <th class='bookmark-Header'>
             URL
         </th>
-        <th>
+        <th class='bookmark-Header'>
     
         </th>
-        <th>
+        <th class='bookmark-Header'>
             Source
         </th>
-        <th>
-            Image
+        <th class='bookmark-Header'>
+        <img src='Matos pour le TP/images/Add.png' alt='Ajouter'>
         </th>
-        <th>
+        <th class='bookmark-Header'>
     
         </th>
 </tr>
