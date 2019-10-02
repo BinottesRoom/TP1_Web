@@ -11,7 +11,7 @@ function cookie_get($name, $default = null){
     return $default;
 }
 
-function cookie_set($name, $value, $duration) {
+function cookie_set($name, $value, $duration) { //créé le cookie
     setcookie($name, $value, time() + $duration);
 }
 
