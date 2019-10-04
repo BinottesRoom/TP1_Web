@@ -2,57 +2,55 @@
     table
     {
         min-width:100%;
-    }   
+    }
+    tr
+    {
+        border: 3px solid red;
+    }
 </style>
 <?php
 include_once "Matos pour le TP/DAL/bookmarks.php";
 
 $content = "
 <div class = 'section'>
-    <table>
-        <tr class='bookmarks-header-layout'>
-                <th>
+        <div class='bookmarks-header-layout bookmark-Header'>
+                <div>
                     Titre
-                </th>
-                <th>
+                </div>
+                <div>
                     Description
-                </th>
-                <th>
+                </div>
+                <div>
                     URL
-                </th>
-                <th>
+                </div>
+                <div>
                     Source
-                </th>
-                <th>
-                <img src='Matos pour le TP/images/Add.png' alt='Ajouter'>
-                </th>
-                <th>
-            
-                </th>
-        </tr>";
+                </div>
+                <div>
+                    <img src='Matos pour le TP/images/Add.png' alt='Ajouter'>
+                </div>
+                <div>
+                    &nbsp;
+                </div>
+        </div>";
 
 foreach(readBookmarks() as $key => $ligne)
 {
-    $content .= "<tr>";
+    $content .= "<div class='bookmarks-row-layout' >";
 
     foreach($ligne as $key2 => $value)
     {
         if ($ligne["Id"] != $value)
         {
-            $content .= "<td>";
+            $content .= "<div>";
             $content .= $value;
-            $content .= "</td>";
+            $content .= "</div>";
         }
     }
-    $content .= "</tr>";
+    $content .= "</div>";
 }
-$content .= "</table></div>";
-
-
-
-
+$content .= "</div></div>";
 include_once "MasterPage.php";
-
 ?>
 
     
