@@ -1,31 +1,58 @@
+<style>
+    table
+    {
+        min-width:100%;
+    }   
+</style>
 <?php
+include_once "Matos pour le TP/DAL/bookmarks.php";
 
-$content = "<table class='bookmarks-header-layout'>
-<tr>
-        <th class='bookmark-Header'>
-            Titre
-        </th>
-        <th class='bookmark-Header'>
-            Description
-        </th>
-        <th class='bookmark-Header'>
-            URL
-        </th>
-        <th class='bookmark-Header'>
-    
-        </th>
-        <th class='bookmark-Header'>
-            Source
-        </th>
-        <th class='bookmark-Header'>
-        <img src='Matos pour le TP/images/Add.png' alt='Ajouter'>
-        </th>
-        <th class='bookmark-Header'>
-    
-        </th>
-</tr>
+$content = "
+<div class = 'section'>
+    <table>
+        <tr class='bookmarks-header-layout'>
+                <th>
+                    Titre
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    URL
+                </th>
+                <th>
+                    Source
+                </th>
+                <th>
+                <img src='Matos pour le TP/images/Add.png' alt='Ajouter'>
+                </th>
+                <th>
+            
+                </th>
+        </tr>";
 
-</table>";
+foreach(readBookmarks() as $key => $ligne)
+{
+    $content .= "<tr>";
+
+    foreach($ligne as $key2 => $value)
+    {
+        if ($ligne["Id"] != $value)
+        {
+            $content .= "<td>";
+            $content .= $value;
+            $content .= "</td>";
+        }
+    }
+    $content .= "</tr>";
+}
+$content .= "</table></div>";
+
+
+
 
 include_once "MasterPage.php";
+
 ?>
+
+    
