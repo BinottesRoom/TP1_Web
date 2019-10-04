@@ -62,7 +62,7 @@ input {
 
 .bookmarks-row-layout {
     display: grid;
-    grid-template-columns:  20% 30% 3% 22% 15% 5% 5%;
+    grid-template-columns:  20% 30% 25% 15% 5% 5%;
     border-radius: 8px;
 }
 
