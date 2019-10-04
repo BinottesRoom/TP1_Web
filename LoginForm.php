@@ -17,8 +17,9 @@ if (session_Timeout_Occured()) {
 $UsernameError = isset($_SESSION['UsernameError'])? $_SESSION['UsernameError'] : '';
 $PasswordError = isset($_SESSION['PasswordError'])? $_SESSION['PasswordError'] : '';
 
-$content = "<form method='POST' action='Login.php'>
-<input type='text' name='Nom' placeholder='Nom'><br>
+$content = "<form method='POST' action='Login.php'>";
+//if()
+$content .= "<input type='text' name='Nom' placeholder='Nom'><br>
 <input type='text' name='Username' placeholder=\"Nom d'usager\">
 <br><input type='password' name='Password' placeholder='Mot de passe'>";
 $content .= showError($UsernameError); 
