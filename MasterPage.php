@@ -11,7 +11,6 @@
 <header>
     <?php 
     require_once 'Header.php';
-    echo $contentHeader;
     ?>
 </header>
 <body> 
