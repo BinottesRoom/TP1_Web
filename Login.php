@@ -35,15 +35,15 @@ if(isset($_POST['login']))
         header('Location:LoginForm.php');
         exit();
     }
-    cookie_deleteAll();
+    //cookie_deleteAll();
     if(!isset($_COOKIE['Nom']))
     {
         cookie_set('Nom',$nom,years(1));
-        cookie_set('NbVisites',0,years(1));
+        cookie_set('NbVisites',1,years(1));
     }
     else
     {
-        ++$_COOKIE['NbVisites'];
+        cookie_update('NbVisites', ++$_COOKIE['NbVisites'],years(1));
     }
 
     header('Location:List.php');
