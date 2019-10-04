@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'Matos pour le TP/utilities/cookie.php';
-require_once 'cookie.php';
 //voir le timeout dans authentification
 if(isset($_POST['login']))
 {
@@ -28,10 +27,17 @@ if(isset($_POST['login']))
         header('Location:LoginForm.php');
         exit();
     }
+
     if(!isset($_COOKIE['Nom']))
-    cookie_set('Nom',$nom,year(1));
-    $nbVisite = 0;
-    cookie_set('NbVisites',$nbVisite++,year(1));
+    {
+        cookie_set('Nom',$nom,years(1));
+        cookie_set('NbVisites',1,years(1));
+    }
+    if(isset($_COOKIE['NbVisites']))
+    {
+        ++$_COOKIE['NbVisites'];
+    }
+
     header('Location:List.php');
     exit();
         /*require 'SessionTimeOut.php';
