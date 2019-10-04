@@ -9,9 +9,7 @@ unset($_SESSION['ValidUser']);
 unset($_SESSION['Username']);
 
 if(isset($_POST['login']))
-{
-
-    
+{   
     $username = $_POST['Username'];
     $psswd = $_POST['Password'];
     $nom = $_POST['Nom'];
