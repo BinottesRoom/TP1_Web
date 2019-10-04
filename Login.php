@@ -2,8 +2,16 @@
 session_start();
 require_once 'Matos pour le TP/utilities/cookie.php';
 //voir le timeout dans authentification
+
+unset($_SESSION['UsernameError']);
+unset($_SESSION['PasswordError']);
+unset($_SESSION['ValidUser']);
+unset($_SESSION['Username']);
+
 if(isset($_POST['login']))
 {
+
+    
     $username = $_POST['Username'];
     $psswd = $_POST['Password'];
     $nom = $_POST['Nom'];
@@ -19,7 +27,7 @@ if(isset($_POST['login']))
     else if($psswd != "manager")
     {
         $_SESSION['ValidUser'] = false;
-        $_SESSION['UsernameError'] = "Le mot de passe est invalide!";
+        $_SESSION['PasswordError'] = "Le mot de passe est invalide!";
     }
 
     if(!$_SESSION['ValidUser'])
@@ -27,13 +35,13 @@ if(isset($_POST['login']))
         header('Location:LoginForm.php');
         exit();
     }
-
+    cookie_deleteAll();
     if(!isset($_COOKIE['Nom']))
     {
         cookie_set('Nom',$nom,years(1));
-        cookie_set('NbVisites',1,years(1));
+        cookie_set('NbVisites',0,years(1));
     }
-    if(isset($_COOKIE['NbVisites']))
+    else
     {
         ++$_COOKIE['NbVisites'];
     }

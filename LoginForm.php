@@ -4,13 +4,8 @@ function showError($message){
 }
 
 require 'Matos pour le TP/utilities/htmlHelper.php';
-require 'SessionTimeOut.php';
 session_start();
 
-if (session_Timeout_Occured()) {
-    $message = "Expiration de session, veuillez vous connecter à nouveau.";
-    release_Session_Timout();
-}
 
 //$username = isset($_SESSION['Username'])? $_SESSION['Username'] : '';
 $UsernameError = isset($_SESSION['UsernameError'])? $_SESSION['UsernameError'] : '';
