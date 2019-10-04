@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 function showError($message){
     return "<span style='color:red'>$message</span>";
@@ -26,5 +27,13 @@ $content .= "<br><input type='submit' name='login' value='Soumettre'><br>";
 $content .= showError($PasswordError);
 $content .= html_close("form");
 require_once 'MasterPage.php';
+=======
+$content ="<form method='POST'>
+<input type=\"text\" name=\"User\" placeholder=\"Nom d'usager\"><br>
+<input type=\"password\" name=\"Password\" placeholder=\"Mot de passe\"><br>
+<input type=\"submit\" name=\"login\" value=\"Soumettre\"><br>
+</form>";
+require_once '../MasterPage.php';
+>>>>>>> 9de6f44e9a34abd221d2653004239d5dd9f108c1
 require_once 'Login.php';
 ?>
