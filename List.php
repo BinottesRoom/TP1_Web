@@ -1,18 +1,9 @@
-<style>
-    table
-    {
-        min-width:100%;
-    }
-    tr
-    {
-        border: 3px solid red;
-    }
-</style>
 <?php
 include_once "Matos pour le TP/DAL/bookmarks.php";
 
 $content = "
 <div class = 'section'>
+<div class=''>Favoris</div>
         <div class='bookmarks-header-layout bookmark-Header'>
                 <div>
                     Titre
