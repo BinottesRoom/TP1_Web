@@ -1,8 +1,15 @@
 <?php
-session_start();
 require_once 'Matos pour le TP/utilities/cookie.php';
-//voir le timeout dans authentification
+session_start();
 
+if(!isset($_SESSION['ValidUser']))
+{
+    $_SESSION['ValidUser'] = false;
+    header('Location:LoginForm.php');
+    exit();
+}
+//voir le timeout dans authentification
+unset($_SESSION['IllegalAcess']);
 unset($_SESSION['UsernameError']);
 unset($_SESSION['PasswordError']);
 unset($_SESSION['ValidUser']);
@@ -43,11 +50,6 @@ if(isset($_POST['login']))
     {
         cookie_update('NbVisites', ++$_COOKIE['NbVisites'],years(1));
     }
-
     header('Location:List.php');
-    exit();
-        /*require 'SessionTimeOut.php';
-    set_Session_Timeout(2000000000,'LoginForm.php');*/   
 }
-
 ?>

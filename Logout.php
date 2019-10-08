@@ -1,6 +1,6 @@
 <?php
-require 'sessionTimeOut.php';
+require 'SessionTimeOut.php';
 session_start();
 delete_session();
-header('Location:loginForm.php');
+header('Location:LoginForm.php');
 ?>

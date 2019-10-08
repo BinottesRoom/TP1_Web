@@ -4,9 +4,15 @@ if(isset($_COOKIE['Nom']))
 {
     echo "Visiteur:";
     echo $_COOKIE['Nom'];
-    echo "          Nombre de Visites:";// le nb de visites ne s'incrémente pas
+    echo "          Nombre de Visites:";
     echo $_COOKIE['NbVisites'];
 }
+
+if(isset($_SESSION['ValidUser']) && $_SESSION['ValidUser'] == true)
+{
+   echo '<a href="Logout.php"><img src="Matos pour le TP/images/Exit.png">'; 
+}
+
 echo "</div>";
 require_once 'MasterPage.php';
 ?>

@@ -1,6 +1,15 @@
 <?php
 include_once "Matos pour le TP/DAL/bookmarks.php";
+require 'SessionTimeOut.php';
+session_start();
+set_Session_Timeout(240,'LoginForm.php');
 
+if(!isset($_SESSION['ValidUser']))
+{
+    $_SESSION['ValidUser'] = false;
+    header('Location:LoginForm.php');
+    exit();
+}
 $content = "
 <div class = 'section'>
 <div class=''>Favoris</div>
