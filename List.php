@@ -30,7 +30,7 @@ $content = "
                     <img src='Matos pour le TP/images/Add.png' alt='Ajouter'>
                 </div>
                 <div>
-                    &nbsp;
+                    
                 </div>
         </div>";
 
@@ -46,8 +46,11 @@ foreach(readBookmarks() as $key => $ligne)
             $content .= $value;
             $content .= "</div>";
         }
+        
     }
-    $content .= "</div>";
+        $content .= "<div><img src='Matos pour le TP/images/Modify.png' alt='Ajouter'></div>";
+        $content .= "<div><img src='Matos pour le TP/images/Erase.png' alt='Effacer'></div>";
+        $content .= "</div>";
 }
 $content .= "</div></div>";
 include_once "MasterPage.php";
