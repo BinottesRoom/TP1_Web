@@ -24,7 +24,7 @@ if (session_Timeout_Occured()) {
 $UsernameError = isset($_SESSION['UsernameError'])? $_SESSION['UsernameError'] : '';
 $PasswordError = isset($_SESSION['PasswordError'])? $_SESSION['PasswordError'] : '';
 
-$content = "<form method='POST' action='Login.php'>";
+$content = "<div>Login -<div style=\color:gray\">Veuillez vous connecter</div></div><hr><div class=\"section\"><form method='POST' action='Login.php'>";
 if(!isset($_COOKIE['Nom']))
 {
     $content .= "<input type='text' name='Nom' placeholder='Nom'><br>";
@@ -35,5 +35,7 @@ $content .= "<br><input type='password' name='Password' placeholder='Mot de pass
 $content .= showError($PasswordError);
 $content .= "<br><input type='submit' name='login' value='Soumettre'><br>";
 $content .= html_close("form");
+$content .= html_close("div");
+$content .= html_close("hr");
 require_once 'MasterPage.php';
 ?>
