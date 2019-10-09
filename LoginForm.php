@@ -8,7 +8,13 @@ require 'SessionTimeOut.php';
 session_start();
 $_SESSION['IllegalAcess'] =  'Accès Illégal';
 
-
+if(isset($_SESSION['ValidUser']))
+{
+    if($_SESSION['ValidUser'] == false)
+    {
+        echo $_SESSION['IllegalAcess'];
+    }
+}
 
 if (session_Timeout_Occured()) {
     echo 'Session expirée';
