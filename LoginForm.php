@@ -24,7 +24,8 @@ if (session_Timeout_Occured()) {
 $UsernameError = isset($_SESSION['UsernameError'])? $_SESSION['UsernameError'] : '';
 $PasswordError = isset($_SESSION['PasswordError'])? $_SESSION['PasswordError'] : '';
 
-$content = "<div>Login -<div style=\color:gray\">Veuillez vous connecter</div></div><hr><div class=\"section\"><form method='POST' action='Login.php'>";
+$content = "<div style=\"display:inline\">Login -<div style=\"color:gray; display:inline\">Veuillez vous connecter</div></div><hr>
+<div><form method='POST' action='Login.php'>";
 if(!isset($_COOKIE['Nom']))
 {
     $content .= "<input type='text' name='Nom' placeholder='Nom'><br>";
