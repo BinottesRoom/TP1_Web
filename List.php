@@ -11,9 +11,9 @@ if(!isset($_SESSION['ValidUser']))
     exit();
 }
 $content = "
-<div class = 'section'>
-<div class=''>Favoris</div>
-        <div class='bookmarks-header-layout bookmark-Header'>
+<div class=''><b>Favoris</b></div>
+    <hr>
+        <div class=' bookmarks-header-layout bookmark-Header'>
                 <div>
                     Titre
                 </div>
@@ -27,12 +27,13 @@ $content = "
                     Source
                 </div>
                 <div>
-                    <img src='Matos pour le TP/images/Add.png' alt='Ajouter'>
+                <a href='AddForm.php'><img src='Matos pour le TP/images/Add.png' alt='Ajouter'></a>
                 </div>
                 <div>
                     
                 </div>
-        </div>";
+        </div>
+    </hr>";
 
 foreach(readBookmarks() as $key => $ligne)
 {
@@ -48,11 +49,11 @@ foreach(readBookmarks() as $key => $ligne)
         }
         
     }
-        $content .= "<div><img src='Matos pour le TP/images/Modify.png' alt='Ajouter'></div>";
-        $content .= "<div><img src='Matos pour le TP/images/Erase.png' alt='Effacer'></div>";
+        $content .= "<div><a href='EditForm.php'><img src='Matos pour le TP/images/Modify.png' alt='Ajouter'></a></div>";
+        $content .= "<div><a href='DeleteForm.php'><img src='Matos pour le TP/images/Erase.png' alt='Effacer'></a></div>";
         $content .= "</div>";
 }
-$content .= "</div></div>";
+$content .= "</div>";
 include_once "MasterPage.php";
 ?>
 

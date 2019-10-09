@@ -15,9 +15,11 @@
     ?>
 </header>
 <main class="main">
+<div class = 'section'>
     <?php
     echo $content;
     ?>
+</div>
 </main>
 <footer class="footer-layout">
     <?php 
