@@ -10,7 +10,7 @@ if(isset($_COOKIE['Nom']))
 
 if(isset($_SESSION['ValidUser']) && $_SESSION['ValidUser'] == true)
 {
-   echo '<a href="Logout.php"><img src="Matos pour le TP/images/Exit.png">'; 
+   echo '<a href="Logout.php"><img src="Matos pour le TP/images/Exit.png"></a>'; 
 }
 
 echo "</div>";
