@@ -28,13 +28,13 @@ $content = "<div style=\"display:inline\">Login -<div style=\"color:gray; displa
 <div><form method='POST' action='Login.php'>";
 if(!isset($_COOKIE['Nom']))
 {
-    $content .= "<input type='text' name='Nom' placeholder='Nom'><br>";
+    $content .= html_textbox("Nom", "Nom").="<br>";
 }
-$content .= "<input type='text' name='Username' placeholder=\"Nom d'usager\">";
+$content .= html_textbox("Nom d'usager", "Nom d'usager").="<br>";
 $content .= showError($UsernameError); 
-$content .= "<br><input type='password' name='Password' placeholder='Mot de passe'>";
+$content .= html_password("Password", "Mot de passe").="<br>";
 $content .= showError($PasswordError);
-$content .= "<br><input type='submit' name='login' value='Soumettre'><br>";
+$content .= html_submit("login", "Soumettre");
 $content .= html_close("form");
 $content .= html_close("div");
 $content .= html_close("hr");

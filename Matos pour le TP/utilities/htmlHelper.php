@@ -45,6 +45,7 @@ function html_password($name, $placeholder, $css='form-control') {
 function html_textbox($name, $placeholder, $value = '', $css='form-control') {
     return
     "<input 
+    type ='text'
     name='$name' 
     id='$name' 
     placeholder=\"$placeholder\" 
