@@ -14,6 +14,7 @@ if(isset($_SESSION['ValidUser']))
     {
         echo $_SESSION['IllegalAcess'];
     }
+    unset($_SESSION['ValidUser']);
 }
 
 if (session_Timeout_Occured()) {

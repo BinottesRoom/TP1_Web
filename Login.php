@@ -2,12 +2,6 @@
 require_once 'Matos pour le TP/utilities/cookie.php';
 session_start();
 
-if(!isset($_SESSION['ValidUser']))
-{
-    $_SESSION['ValidUser'] = false;
-    header('Location:LoginForm.php');
-    exit();
-}
 //voir le timeout dans authentification
 unset($_SESSION['IllegalAcess']);
 unset($_SESSION['UsernameError']);
@@ -51,5 +45,11 @@ if(isset($_POST['login']))
         cookie_update('NbVisites', ++$_COOKIE['NbVisites'],years(1));
     }
     header('Location:List.php');
+}
+else if(!isset($_SESSION['ValidUser']))
+{
+    $_SESSION['ValidUser'] = false;
+    header('Location:LoginForm.php');
+    exit();
 }
 ?>
