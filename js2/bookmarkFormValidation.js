@@ -1,5 +1,5 @@
 // objet d'automatisation de la validation
-
+let validationProvider;
 
 $(document).ready(initUI);
 

@@ -53,6 +53,18 @@ function html_textbox($name, $placeholder, $value = '', $css='form-control') {
     class='$css'>";
 }
 
+function html_textboxJS($name, $placeholder, $script, $value = '', $css='form-control') {
+    return
+    "<input 
+    type ='text'
+    $script
+    name='$name' 
+    id='$name' 
+    placeholder=\"$placeholder\" 
+    value ='$value' 
+    class='$css'>";
+}
+
 
 function html_Hidden($name, $value) {
     return "<input type='hidden' name='$name' value='$value'>";

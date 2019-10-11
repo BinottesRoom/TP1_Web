@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>TP1_Web_J.C._I.L.</title>
-    <?php
-    require_once 'AllCssLink.php';
-    require_once 'AllJsLinks.php';
-     ?>
+    <?php require_once 'AllCssLink.php'; ?>
 </head>
 <body> 
     <div class="main">
@@ -28,6 +25,6 @@
     ?>
 </footer>  
 </div>
+<?php require_once 'AllJsLinks.php'; ?>
 </body>
-
 </html>
