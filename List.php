@@ -11,7 +11,7 @@ if(!isset($_SESSION['ValidUser']))
     exit();
 }
 $content = "
-<div class=''><b>Favoris</b></div>
+<div><b>Favoris</b></div>
     <hr>
         <div class=' bookmarks-header-layout bookmark-Header'>
                 <div>
@@ -53,7 +53,6 @@ foreach(readBookmarks() as $key => $ligne)
         $content .= "<div><a href='DeleteForm.php'><img src='Matos pour le TP/images/Erase.png' alt='Effacer'></a></div>";
         $content .= "</div>";
 }
-$content .= "</div>";
 include_once "MasterPage.php";
 ?>
 
