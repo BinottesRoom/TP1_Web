@@ -25,7 +25,6 @@
 <footer class="footer-layout">
     <?php 
     require_once 'Footer.php';
-    echo $contentFooter;
     ?>
 </footer>  
 </div>
