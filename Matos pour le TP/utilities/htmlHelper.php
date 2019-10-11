@@ -115,7 +115,7 @@ function html_errorMessage($message){
 
 function html_image($imageFile, $css=''){
     return "<img 
-    src='images/$imageFile' 
+    src='Matos pour le TP/images/$imageFile' 
     alt='$imageFile' 
     class='$css'/>";
 }

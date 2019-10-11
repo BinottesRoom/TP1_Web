@@ -8,13 +8,14 @@
     require_once 'AllJsLinks.php';
      ?>
 </head>
-<body class=""> 
-<header class="header-layout mainHeaderCell">
+<body> 
+    <div class="main">
+<header class=" header-layout mainHeaderCell">
     <?php 
     require_once 'Header.php';
     ?>
 </header>
-<main class="main">
+<main class="">
 <div class = 'section'>
     <?php
     echo $content;
@@ -24,9 +25,9 @@
 <footer class="footer-layout">
     <?php 
     require_once 'Footer.php';
-    echo $contentFooter;
     ?>
-</footer>   
+</footer>  
+</div>
 </body>
 
 </html>

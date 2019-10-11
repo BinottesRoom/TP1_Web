@@ -1,18 +1,31 @@
 <?php
-echo "<div><h1>Gestionnaire de favoris</h1>";
+require_once 'Matos pour le TP/utilities/htmlHelper.php';
+
+echo html_open("div");
+    echo "<img src='Matos pour le TP/images/favicon.ico'>";
+echo html_close("div");
+echo html_open("div ");
+    echo "<h1>Gestionnaire de favoris</h1>";
+echo html_close("div");
+
 if(isset($_COOKIE['Nom']))
 {
-    echo "Visiteur:";
-    echo $_COOKIE['Nom'];
-    echo "          Nombre de Visites:";
-    echo $_COOKIE['NbVisites'];
+    echo html_open("div ");
+        echo "Visiteur: ";
+        echo $_COOKIE['Nom'];
+    echo html_close("div");
+    echo html_open("div ");
+        echo "Visites: ";
+        echo $_COOKIE['NbVisites'];
+    echo html_close("div");
 }
 
 if(isset($_SESSION['ValidUser']) && $_SESSION['ValidUser'] == true)
 {
-   echo '<a href="Logout.php"><img src="Matos pour le TP/images/Exit.png"></a>'; 
+    echo html_open("div ");
+        echo '<a href="Logout.php"><img src="Matos pour le TP/images/Exit.png"></a>';
+    echo html_close("div");
 }
 
-echo "</div>";
 require_once 'MasterPage.php';
 ?>
