@@ -6,7 +6,8 @@ require_once 'Matos pour le TP/utilities/cookie.php';
 require 'Matos pour le TP/utilities/htmlHelper.php';
 require 'SessionTimeOut.php';
 session_start();
-
+$_SESSION['IllegalAcess'] = '';
+$_SESSION['SessionExpiree'] = '';
 if(isset($_SESSION['ValidUser']))
 {
     if($_SESSION['ValidUser'] == false)
@@ -35,8 +36,8 @@ $content .= html_password("Password", "Mot de passe");
 $content .= showError($PasswordError)."<br>";
 $content .= html_submit("login", "Soumettre");
 $content .= "<br>";
-echo $_SESSION['IllegalAcess'];
-echo $_SESSION['SessionExpiree'];
+$content .= showError($_SESSION['IllegalAcess']);
+$content .= showError($_SESSION['SessionExpiree']);
 $content .= html_close("form");
 $content .= html_close("div");
 $content .= html_close("hr");
