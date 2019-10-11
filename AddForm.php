@@ -1,7 +1,15 @@
 <?php
 //Ajout d'un favori dans la liste
 require 'Matos pour le TP/utilities/htmlHelper.php';
+session_start();
+set_Session_Timeout(240,'LoginForm.php');
 
+if(!isset($_SESSION['ValidUser']))
+{
+    $_SESSION['ValidUser'] = false;
+    header('Location:LoginForm.php');
+    exit();
+}
 
 $content = "<div style=\"display:inline\"><b>Ajout de favori</b></div><hr>
 <div><form method='POST' action='Add.php'>";

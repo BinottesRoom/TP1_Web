@@ -6,19 +6,18 @@ require_once 'Matos pour le TP/utilities/cookie.php';
 require 'Matos pour le TP/utilities/htmlHelper.php';
 require 'SessionTimeOut.php';
 session_start();
-$_SESSION['IllegalAcess'] =  'Accès Illégal';
 
 if(isset($_SESSION['ValidUser']))
 {
     if($_SESSION['ValidUser'] == false)
     {
-        echo $_SESSION['IllegalAcess'];
-    }
+        $_SESSION['IllegalAcess'] =  'Accès Illégal';
+   }
     unset($_SESSION['ValidUser']);
 }
 
 if (session_Timeout_Occured()) {
-    echo 'Session expirée';
+    $_SESSION['SessionExpiree'] ='Session expirée';
     release_Session_Timeout();
 }
 $UsernameError = isset($_SESSION['UsernameError'])? $_SESSION['UsernameError'] : '';
@@ -35,6 +34,8 @@ $content .= showError($UsernameError)."<br>";
 $content .= html_password("Password", "Mot de passe");
 $content .= showError($PasswordError)."<br>";
 $content .= html_submit("login", "Soumettre");
+echo $_SESSION['IllegalAcess'];
+echo $_SESSION['SessionExpiree'];
 $content .= html_close("form");
 $content .= html_close("div");
 $content .= html_close("hr");
