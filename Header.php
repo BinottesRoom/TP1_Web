@@ -2,7 +2,7 @@
 require_once 'Matos pour le TP/utilities/htmlHelper.php';
 
 echo html_open("div");
-    echo "<img src='Matos pour le TP/images/favicon.ico'>";
+    echo "<img src='Matos pour le TP/images/favicon.ico' class='icon-Header'>";
 echo html_close("div");
 echo html_open("div ");
     echo "<h1>Gestionnaire de favoris</h1>";
