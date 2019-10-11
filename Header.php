@@ -1,5 +1,9 @@
 <?php
-echo "<div><h1>Gestionnaire de favoris</h1>";
+require_once 'Matos pour le TP/utilities/htmlHelper.php';
+
+echo html_open("div");
+echo html_image("favicon­.ico", "favicon");
+echo html_close("div");
 if(isset($_COOKIE['Nom']))
 {
     echo "Visiteur:";
