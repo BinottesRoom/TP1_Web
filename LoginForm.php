@@ -34,6 +34,7 @@ $content .= showError($UsernameError)."<br>";
 $content .= html_password("Password", "Mot de passe");
 $content .= showError($PasswordError)."<br>";
 $content .= html_submit("login", "Soumettre");
+$content .= "<br>";
 echo $_SESSION['IllegalAcess'];
 echo $_SESSION['SessionExpiree'];
 $content .= html_close("form");
