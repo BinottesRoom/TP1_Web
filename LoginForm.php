@@ -1,7 +1,5 @@
 <?php
-function showError($message){
-    return "<span style='color:red'>$message</span>";
-}
+require 'AutresFct.php';
 require_once 'Matos pour le TP/utilities/cookie.php';
 require 'Matos pour le TP/utilities/htmlHelper.php';
 require 'SessionTimeOut.php';

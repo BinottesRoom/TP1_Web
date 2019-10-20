@@ -1,5 +1,5 @@
 <?php
-require 'SessionTimeOut.php';
+require_once 'SessionTimeOut.php';
 set_Session_Timeout(240,'LoginForm.php');
 
 if(!isset($_SESSION['ValidUser']))
