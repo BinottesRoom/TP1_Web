@@ -12,17 +12,21 @@ if(!isset($_SESSION['ValidUser']))
     exit();
 }
 
-$content = "<div style=\"display:inline\"><h3>Ajout de favori</h3></div><hr>
-<div><form method='POST' action='Add.php'>";
-$content .= "<b>".html_label("Titre", "Titre")."</b>";//titre
+$content = "<div style=\"display:inline\">";
+$content .= html_open("h3");
+$content .="Ajout de favori";
+$content .= html_close("h3");
+$content .= html_close("div");
+$content .= "<hr>".html_open("div")."<form method='POST' action='Add.php'>";
+$content .= html_open("b").html_label("Titre", "Titre").html_close("b");//titre
 $content .= "<br>";
 $content .= html_textbox("Titre", "Titre");
 $content .= "<br><br>";
-$content .= "<b>".html_label("Description", "Description")."</b>";//description
+$content .= html_open("b").html_label("Description", "Description").html_close("b");//description
 $content .= "<br>";
 $content .= html_textbox("Description", "Description");
 $content .= "<br><br>";
-$content .= "<b>".html_label("URL", "URL")."</b>";//url
+$content .= html_open("b").html_label("URL", "URL").html_close("b");//url
 $content .= "<br>";
 $content .= html_textbox("URL", "URL");
 $content .= "<br><br>";
