@@ -3,15 +3,7 @@
 require 'Matos pour le TP/utilities/htmlHelper.php';
 require_once 'SessionTimeOut.php';
 session_start();
-set_Session_Timeout(240,'LoginForm.php');
-
-if(!isset($_SESSION['ValidUser']))
-{
-    $_SESSION['ValidUser'] = false;
-    header('Location:LoginForm.php');
-    exit();
-}
-
+require 'VerificationAcessIllegalEtSessionExpiree.php';
 $content = "<div style=\"display:inline\">";
 $content .= html_open("h3");
 $content .="Ajout de favori";
@@ -37,6 +29,3 @@ $content .= html_close("hr");
 
 include_once 'MasterPage.php';
 ?>
-<script>
-<?php include "js/bookmarkFormValidation.js"; ?>
-</script>
