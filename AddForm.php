@@ -32,6 +32,7 @@ $content .= html_submit("ajouter", "Ajouter");
 $content .= html_close("form");
 $content .= html_close("div");
 $content .= html_close("hr");
+$content .= "<a href='List.php'><img src='Matos pour le TP/images/Back.png' alt='Retour en arrière'>".html_close("a");
 
 include_once 'MasterPage.php';
 ?>
