@@ -3,6 +3,7 @@ include_once "Matos pour le TP/DAL/bookmarks.php";
 require 'Matos pour le TP/utilities/htmlHelper.php';
 require 'SessionTimeOut.php';
 session_start();
+$_SESSION['idFavoris'] = 1;
 require 'VerificationAcessIllegalEtSessionExpiree.php';
 $content = html_open("div").html_open("b")."Favoris".html_close("b").html_close("div")
 .html_open("hr")
@@ -30,7 +31,7 @@ $content = html_open("div").html_open("b")."Favoris".html_close("b").html_close(
 foreach(readBookmarks() as $key => $ligne)
 {
     $content .= "<div class='bookmarks-row-layout' >";
-
+    $_SESSION['idFavoris']++;
     foreach($ligne as $key2 => $value)
     {
         if ($ligne["Id"] != $value)
@@ -41,10 +42,12 @@ foreach(readBookmarks() as $key => $ligne)
         }
         
     }
-        $content .= html_open("div")."<a href='EditForm.php'><img src='Matos pour le TP/images/Modify.png' alt='Ajouter'>".html_close("a").html_close("div");
-        $content .= html_open("div")."<a href='DeleteForm.php'><img src='Matos pour le TP/images/Erase.png' alt='Effacer'>".html_close("a").html_close("div");
-        $content .= html_close("div");
+    unset($value);
+    $content .= html_open("div")."<a href='EditForm.php'><img src='Matos pour le TP/images/Modify.png' alt='Ajouter'>".html_close("a").html_close("div");
+    $content .= html_open("div")."<a href='DeleteForm.php'><img src='Matos pour le TP/images/Erase.png' alt='Effacer'>".html_close("a").html_close("div");
+    $content .= html_close("div");
 }
+unset($key);
 include_once "MasterPage.php";
 ?>
 
