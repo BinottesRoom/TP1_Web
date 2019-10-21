@@ -1,5 +1,6 @@
 <?php
 require_once 'Matos pour le TP/utilities/cookie.php';
+require_once 'Matos pour le TP/utilities/form.php';
 session_start();
 
 //voir le timeout dans authentification
@@ -14,6 +15,10 @@ if(isset($_POST['login']))
     $username = $_POST['Username'];
     $psswd = $_POST['Password'];
     $nom = $_POST['Nom'];
+
+    sanitizeString($username);
+    sanitizeString($psswd);
+    sanitizeString($nom);
     
 
     $_SESSION['ValidUser'] = true;
