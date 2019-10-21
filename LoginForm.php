@@ -40,4 +40,68 @@ $content .= html_close("form");
 $content .= html_close("div");
 $content .= html_close("hr");
 require_once 'MasterPage.php';
+
+/*list.php
+action
+- Trier le tableau de favoris (première clé sur source, deuxième clé sur titre)
+réponse
+o Un favori par rangée :
+ Source si différent du visiteur
+ Titre,
+ Description,
+ Url (hyper lien),
+ Si Source = Visiteur, Icone d’édition (hyper lien vers editForm.php?id=X)
+ Si Source = Visiteur, Icone de retrait (hyper lien deleteForm.php?id=X)
+
+addForm.php
+Important :
+- Empêcher l’ajout du caractère ‘|’ dans les champs texte
+
+editForm.php?id=X ( X étant le id du favori à éditer)
+action
+- Si X existe dans le fichier, récupérer le favori X du fichier bookmarks.txt, sinon redirigez à
+loginForm.php avec message « Accès illégal »
+- Si Visiteur != Source, redirigez à loginForm.php avec message « Accès illégal »
+réponse
+- Formulaire de modification d’un favori avec les contrôles suivants peuplés avec les
+valeurs du favori X:
+o <form action='edit.php' method='post'>
+o id du favori masqué (<input type='hidden' name='$id'> )
+Important :
+- Empêcher l’ajout du caractère ‘|’ dans les champs texte
+
+deleteForm.php?id=X ( x étant le id du favori à éditer)
+action
+- Si X existe dans le fichier, récupérer le favori X du fichier bookmarks.txt, sinon redirigez à
+loginForm.php avec message « Accès illégal »
+- Si Visiteur != Source_Favori_X, redirigez à loginForm.php avec message « Accès illégal »
+réponse
+- Les informations du favori X à effacer
+o Titre
+o Description
+o Url
+- Formulaire comportant les contrôles suivants :
+o id du favori masqué (<input type='hidden' name='$id'> )
+
+add.php
+action
+- Filtrer les données provenant du formulaire (balise, ‘|’, espace en trop, etc.)
+- Ajout du favori provenant du formulaire dans le fichier bookmarks.txt
+
+edit.php
+action
+- Récupérer les données du formulaire (ne pas oublier le id_favori)
+- Filtrer les données provenant du formulaire (balise, ‘|’, espace en trop, etc.)
+- Si id_favori existe dans le fichier, récupérer le favori id_favori du fichier bookmarks.txt,
+sinon redirigez à loginForm.php avec message « Accès illégal »
+- Si Visiteur != Source_favori, redirigez à loginForm.php avec message « Accès illégal »
+- Mise à jour du favori dans le fichier bookmarks.txt
+
+delete.php:
+action
+- Récupérer le id_favori du formulaire
+- Si id_favori existe dans le fichier, récupérer le favori id_favori du fichier bookmarks.txt,
+sinon redirigez à login.php avec message « Accès illégal »
+- Si Visiteur != Source_favori, redirigez à loginForm.php avec message « Accès illégal »
+- Retrait du favori dans le fichier bookmarks.txt*/
 ?>
