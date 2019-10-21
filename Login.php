@@ -23,14 +23,10 @@ if(isset($_POST['login']))
 
     $_SESSION['ValidUser'] = true;
 
-    if($username != "bookmarks")
+    if($username != "bookmarks" || $psswd != "manager")
     {
         $_SESSION['ValidUser'] = false;
         $_SESSION['UsernameError'] = "L'utilisateur est invalide!";
-    }
-    else if($psswd != "manager")
-    {
-        $_SESSION['ValidUser'] = false;
         $_SESSION['PasswordError'] = "Le mot de passe est invalide!";
     }
 
