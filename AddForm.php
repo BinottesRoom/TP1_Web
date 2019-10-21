@@ -15,7 +15,7 @@ $content .= html_open("h3");
 $content .="Ajout de favori";
 $content .= html_close("h3");
 $content .= html_close("div");
-$content .= "<hr>".html_open("div")."<form method='POST' action='Add.php'>";
+$content .= "<hr>".html_open("div")."<form id='bookmarkForm' method='POST' action='Add.php'>";
 $content .= html_open("b").html_label("Titre", "Titre").html_close("b");//titre
 $content .="<br>";
 $content .= html_textbox("Titre", "Titre");
