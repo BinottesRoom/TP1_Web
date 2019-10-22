@@ -86,7 +86,6 @@ o id du favori masqué (<input type='hidden' name='$id'> )
 add.php
 action
 - Filtrer les données provenant du formulaire (balise, ‘|’, espace en trop, etc.)
-- Ajout du favori provenant du formulaire dans le fichier bookmarks.txt
 
 edit.php
 action
