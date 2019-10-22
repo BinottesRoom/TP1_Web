@@ -2,6 +2,8 @@
 require 'SessionTimeOut.php';
 session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
+include_once 'utilities/form.php';
+require 'DAL/bookmarks.php';
 
 unset($_SESSION['TitreInvalide']);
 unset($_SESSION['DescriptionInvalide']);
@@ -14,7 +16,13 @@ if(isset($_POST['ajouter']))
     $url = $_POST['URL'];
     $fichier = "data/bookmarks.txt";
 
+
     $donneesPost = array([$_SESSION['idFavoris'], $titre, $description, $url, $_COOKIE['Nom']]);
+    $donneesPost['Id']             = $_SESSION['idFavoris'];
+    $donneesPost['Title']          = sanitizeString($titre);
+    $donneesPost['Description']    = sanitizeString($description);
+    $donneesPost['Url']            = sanitizeString($url);
+    $donneesPost['Source']         = $_COOKIE['Nom']; 
 
     $_SESSION['favorisValide'] = true;
     if($titre.trim(" ") == "" || $titre == null)//manque probablement des vérifications
@@ -41,18 +49,7 @@ if(isset($_POST['ajouter']))
     }
     else
     {
-        $montantDonnees = sizeof($donneesPost);
-        $fwrite = fopen($fichier, 'w');
-
-        fwrite($fichier, $_SESSION['idFavoris'].'|');
-        fwrite($fichier, $titre.'|');
-        fwrite($fichier, $description.'|');
-        fwrite($fichier, $url.'|');
-        fwrite($fichier, $_COOKIE['Nom'].'|');
-        // for ($i = 0; i < count($donneesPost); $i++)
-        // {
-        //     fwrite($fichier, "$donneesPost[$i]".'|');
-        // }
+        addBookmark($donneesPost);
     }
 
 }

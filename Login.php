@@ -1,6 +1,6 @@
 <?php
-require_once 'Matos pour le TP/utilities/cookie.php';
-require_once 'Matos pour le TP/utilities/form.php';
+require_once 'utilities/cookie.php';
+require_once 'utilities/form.php';
 session_start();
 
 //voir le timeout dans authentification

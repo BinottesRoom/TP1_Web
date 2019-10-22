@@ -1,6 +1,6 @@
 <?php
-include_once "Matos pour le TP/DAL/bookmarks.php";
-require 'Matos pour le TP/utilities/htmlHelper.php';
+include_once "DAL/bookmarks.php";
+require 'utilities/htmlHelper.php';
 require 'SessionTimeOut.php';
 session_start();
 $_SESSION['idFavoris'] = 1;
@@ -21,7 +21,7 @@ $content = html_open("div").html_open("b")."Favoris".html_close("b").html_close(
                     "Source"
                 .html_close("div")
                 .html_open("div")
-                    ."<a href='AddForm.php'><img src='Matos pour le TP/images/Add.png' alt='Ajouter'>".html_close("a")
+                    ."<a href='AddForm.php'><img src='images/Add.png' alt='Ajouter'>".html_close("a")
                     .html_close("div")
                     .html_open("div")
                 .html_close("div")
@@ -43,8 +43,8 @@ foreach(readBookmarks() as $key => $ligne)
         
     }
     unset($value);
-    $content .= html_open("div")."<a href='EditForm.php'><img src='Matos pour le TP/images/Modify.png' alt='Ajouter'>".html_close("a").html_close("div");
-    $content .= html_open("div")."<a href='DeleteForm.php'><img src='Matos pour le TP/images/Erase.png' alt='Effacer'>".html_close("a").html_close("div");
+    $content .= html_open("div")."<a href='EditForm.php'><img src='images/Modify.png' alt='Ajouter'>".html_close("a").html_close("div");
+    $content .= html_open("div")."<a href='DeleteForm.php'><img src='images/Erase.png' alt='Effacer'>".html_close("a").html_close("div");
     $content .= html_close("div");
 }
 unset($key);

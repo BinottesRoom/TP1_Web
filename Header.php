@@ -1,7 +1,7 @@
 <?php
-require_once 'Matos pour le TP/utilities/htmlHelper.php';
+require_once 'utilities/htmlHelper.php';
 
-    echo "<img src='Matos pour le TP/images/favicon.ico'>";
+    echo "<img src='images/favicon.ico'>";
 echo html_open("div ");
     echo "<h1>Gestionnaire de favoris</h1>";
 echo html_close("div");
@@ -21,7 +21,7 @@ if(isset($_COOKIE['Nom']))
 if(isset($_SESSION['ValidUser']) && $_SESSION['ValidUser'] == true)
 {
     echo html_open("div ");
-        echo '<a href="Logout.php"><img src="Matos pour le TP/images/Exit.png"></a>';
+        echo '<a href="Logout.php"><img src="images/Exit.png"></a>';
     echo html_close("div");
 }
 

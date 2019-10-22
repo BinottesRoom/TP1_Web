@@ -1,5 +1,5 @@
 <?php
-require 'Matos pour le TP/utilities/htmlHelper.php';
+require 'utilities/htmlHelper.php';
 require 'AutresFct.php';
 require_once 'SessionTimeOut.php';
 session_start();
@@ -31,7 +31,7 @@ $content .= html_submit("modifier", "Modifier");
 $content .= html_close("form");
 $content .= html_close("div");
 $content .= html_close("hr");
-$content .= "<a href='List.php'><img src='Matos pour le TP/images/Back.png' alt='Retour en arrière'>".html_close("a");
+$content .= "<a href='List.php'><img src='images/Back.png' alt='Retour en arrière'>".html_close("a");
 
 
 include_once 'MasterPage.php';

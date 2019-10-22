@@ -1,7 +1,7 @@
 <?php
 require 'AutresFct.php';
-require_once 'Matos pour le TP/utilities/cookie.php';
-require 'Matos pour le TP/utilities/htmlHelper.php';
+require_once 'utilities/cookie.php';
+require 'utilities/htmlHelper.php';
 require 'SessionTimeOut.php';
 session_start();
 $_SESSION['IllegalAcess'] = '';

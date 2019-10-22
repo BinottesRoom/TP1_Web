@@ -21,7 +21,14 @@
         $bookmark['Description']    = $fields[2];
         $bookmark['Url']            = $fields[3];
         $bookmark['Source']         = str_replace("\n","",$fields[4]);
+        $bookmark['Source']         = str_replace("\r","",$bookmark['Source']);
         return $bookmark;
+    }
+
+    function isOwner($source, $bookmark){
+        if (isset($source) && isset($bookmark))
+            return strcmp($source, $bookmark['Source']) === 0;
+        return false;
     }
 
     function bookmarkCompare($ba, $bb) {
@@ -34,11 +41,13 @@
     function readBookmarks() {
         $bookmarksFileHandle = fopen(BOOKMARKSFILE,'r');
         $bookmarks = [];
+        while (!flock($bookmarksFileHandle, LOCK_SH)) { usleep(1); }
         while (!feof($bookmarksFileHandle)){
             $line = fgets($bookmarksFileHandle);
             if ($line)
                 $bookmarks[] = CSVToBookmark($line);
         }
+        flock($bookmarksFileHandle, LOCK_UN);
         fclose($bookmarksFileHandle);
         usort($bookmarks,'bookmarkCompare');
         return $bookmarks;
@@ -46,16 +55,21 @@
 
     function writeBookmarks($bookmarks) {
         $bookmarksFileHandle = fopen(BOOKMARKSFILE,'w');
-        if (flock($bookmarksFileHandle, LOCK_EX))
+        while (!flock($bookmarksFileHandle, LOCK_EX)) { usleep(1); }
+        try
         {
             foreach($bookmarks as $bookmark){
                 fwrite($bookmarksFileHandle, bookmarkToCSVLine($bookmark));
             }
+            
+        } 
+        catch(Exception $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+        finally {
             fflush($bookmarksFileHandle);
             flock($bookmarksFileHandle, LOCK_UN);
             fclose($bookmarksFileHandle);
-        } else {
-            echo "Impossible de verrouiller le fichier ".BOOKMARKSFILE;
         }
     }
 
