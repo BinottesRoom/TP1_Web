@@ -9,7 +9,14 @@ $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : ''
 $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInvalide'] : '';
 $UrlError = isset($_SESSION['URLInvalide'])? $_SESSION['URLInvalide'] : '';
 
-$id = $_GET['id'];
+$id = $_GET['Id'];
+$fd = findBookmark($id);
+if($fd['Source'] != $_COOKIE['Nom'])
+{
+    header('LoginForm.php');
+    exit();
+}
+
 $_SESSION['idDelete'] = $id;
 
 $bookmarksDelete = findBookmark($id);

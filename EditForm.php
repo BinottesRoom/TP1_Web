@@ -11,7 +11,7 @@ $UrlError = isset($_SESSION['URLInvalide'])? $_SESSION['URLInvalide'] : '';
 
 
 $id = $_GET['Id'];
-$fd = findBookmark($id);
+$fd = findBookmark($idOk);
 
 if($fd['Source'] != $_COOKIE['Nom'])
 {
