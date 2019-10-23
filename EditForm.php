@@ -2,9 +2,9 @@
 require 'utilities/htmlHelper.php';
 require 'AutresFct.php';
 require_once 'SessionTimeOut.php';
-include_once "DAL/bookmarks.php";
 session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
+include_once "DAL/bookmarks.php";
 
 
 $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : '';

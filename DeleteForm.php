@@ -1,9 +1,9 @@
 <?php
 require 'utilities/htmlHelper.php';
 require_once 'SessionTimeOut.php';
-include_once "DAL/bookmarks.php";
 session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
+include_once "DAL/bookmarks.php";
 
 $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : '';
 $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInvalide'] : '';

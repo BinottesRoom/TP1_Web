@@ -1,9 +1,9 @@
 <?php 
 require 'SessionTimeOut.php';
-include_once 'utilities/form.php';
-require 'DAL/bookmarks.php';
 session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
+include_once 'utilities/form.php';
+require 'DAL/bookmarks.php';
 
 unset($_SESSION['TitreInvalide']);
 unset($_SESSION['DescriptionInvalide']);
