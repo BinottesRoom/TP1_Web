@@ -3,8 +3,9 @@ include_once "DAL/bookmarks.php";
 require 'utilities/htmlHelper.php';
 require 'SessionTimeOut.php';
 session_start();
-$_SESSION['idFavoris'] = 1;
 require 'VerificationAcessIllegalEtSessionExpiree.php';
+
+$_SESSION['idFavoris'] = 1;
 $content = html_open("div").html_open("b")."Favoris".html_close("b").html_close("div")
 .html_open("hr")
         ."<div class=' bookmarks-header-layout bookmark-Header'>"

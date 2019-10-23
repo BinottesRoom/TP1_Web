@@ -2,8 +2,8 @@
 require 'AutresFct.php';
 require 'utilities/htmlHelper.php';
 require_once 'SessionTimeOut.php';
-require 'VerificationAcessIllegalEtSessionExpiree.php';
 session_start();
+require 'VerificationAcessIllegalEtSessionExpiree.php';
 
 $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : '';
 $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInvalide'] : '';

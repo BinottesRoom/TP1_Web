@@ -1,9 +1,10 @@
 <?php // Faire en sorte qu'il prenne les valeurs du favoris et que ce soit les favoris du user connecté seulement
 require_once 'SessionTimeOut.php';
-require 'VerificationAcessIllegalEtSessionExpiree.php';
 include_once 'utilities/form.php';
 require 'DAL/bookmarks.php';
 session_start();
+require 'VerificationAcessIllegalEtSessionExpiree.php';
+
 
 unset($_SESSION['TitreInvalide']);
 unset($_SESSION['DescriptionInvalide']);

@@ -2,9 +2,10 @@
 require 'utilities/htmlHelper.php';
 require 'AutresFct.php';
 require_once 'SessionTimeOut.php';
-require 'VerificationAcessIllegalEtSessionExpiree.php';
 include_once "DAL/bookmarks.php";
 session_start();
+require 'VerificationAcessIllegalEtSessionExpiree.php';
+
 
 $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : '';
 $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInvalide'] : '';
@@ -12,8 +13,8 @@ $UrlError = isset($_SESSION['URLInvalide'])? $_SESSION['URLInvalide'] : '';
 
 
 $id = $_GET['id'];
-$_SESSION['idEdit'] = $id;
-$fd = findBookmark($id);
+$fd = findBookmark($idOk);
+//$_SESSION['idEdit'] = $id;
 
 if($fd['Source'] != $_COOKIE['Nom'])
 {
