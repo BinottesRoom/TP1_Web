@@ -10,7 +10,7 @@ $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInva
 $UrlError = isset($_SESSION['URLInvalide'])? $_SESSION['URLInvalide'] : '';
 
 
-$id = $_GET['Id'];
+$id = $_GET['id'];
 $fd = findBookmark($idOk);
 
 if($fd['Source'] != $_COOKIE['Nom'])
