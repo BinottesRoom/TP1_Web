@@ -43,8 +43,7 @@ foreach($bookmarks as $ligne)
             if($value == $ligne['Url'])
             {
                 $content .= html_open("div");
-                $content .= "<a href='$value'><img src='https://s2.googleusercontent.com/s2/favicons?domain=$value'></a>";
-                $content .= $value;
+                $content .= "<a href='$value'><img src='https://s2.googleusercontent.com/s2/favicons?domain=$value'>$value</a>";
                 $content .= html_close("div");
             }
             else
