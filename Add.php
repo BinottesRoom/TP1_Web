@@ -1,9 +1,9 @@
 <?php 
 require 'SessionTimeOut.php';
-session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
 include_once 'utilities/form.php';
 require 'DAL/bookmarks.php';
+session_start();
 
 unset($_SESSION['TitreInvalide']);
 unset($_SESSION['DescriptionInvalide']);
@@ -21,7 +21,6 @@ if(isset($_POST['ajouter']))
     $bookmarks['Description'] = sanitizeString($description);
     $bookmarks['Url'] = sanitizeString($url);
     $bookmarks['Source'] = $_COOKIE['Nom']; 
-    //$bookmarks['Title'] == ""
 
     $_SESSION['favorisValide'] = true;
     if(trim($bookmarks['Title']) == "" || $bookmarks['Title'] == null )

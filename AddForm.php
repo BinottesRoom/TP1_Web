@@ -1,10 +1,9 @@
 <?php
-//Ajout d'un favori dans la liste
 require 'AutresFct.php';
 require 'utilities/htmlHelper.php';
 require_once 'SessionTimeOut.php';
-session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
+session_start();
 
 $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : '';
 $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInvalide'] : '';

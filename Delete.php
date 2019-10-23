@@ -1,8 +1,8 @@
 <?php
 require_once 'SessionTimeOut.php';
-session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
 include_once "DAL/bookmarks.php";
+session_start();
 
 unset($_SESSION['TitreInvalide']);
 unset($_SESSION['DescriptionInvalide']);

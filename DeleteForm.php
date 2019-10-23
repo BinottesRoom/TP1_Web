@@ -1,9 +1,9 @@
 <?php
 require 'utilities/htmlHelper.php';
 require_once 'SessionTimeOut.php';
-session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
 include_once "DAL/bookmarks.php";
+session_start();
 
 $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : '';
 $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInvalide'] : '';
@@ -11,7 +11,6 @@ $UrlError = isset($_SESSION['URLInvalide'])? $_SESSION['URLInvalide'] : '';
 
 $id = $_GET['id'];
 $_SESSION['idDelete'] = $id;
-
 $bookmarksDelete = findBookmark($id);
 
 $content = "<div style=\"display:inline\">";
