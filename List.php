@@ -43,9 +43,17 @@ foreach(readBookmarks() as $key => $ligne)
         
     }
     unset($value);
-    $content .= html_open("div")."<a href='EditForm.php'><img src='images/Modify.png' alt='Ajouter'>".html_close("a").html_close("div");
-    $content .= html_open("div")."<a href='DeleteForm.php'><img src='images/Erase.png' alt='Effacer'>".html_close("a").html_close("div");
+    $content .= html_open("div")."<a href='EditForm.php'><img value='".$_SESSION['idFavoris']."' src='images/Modify.png' alt='Ajouter' onclick =".getID(this).">".html_close("a").html_close("div");
+    $content .= html_open("div")."<a href='DeleteForm.php'><img value='".$_SESSION['idFavoris']."' src='images/Erase.png' alt='Effacer' onclick =".getID(this).">".html_close("a").html_close("div");
     $content .= html_close("div");
+
+
+    $content .= "<form method='post' action='DeleteForm.php'></form>";
+}
+
+function getId($idImage)
+{
+    $_SESSION['idImage'] = $idImage;
 }
 unset($key);
 include_once "MasterPage.php";

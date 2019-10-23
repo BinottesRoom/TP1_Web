@@ -7,11 +7,13 @@ unset($_SESSION['TitreInvalide']);
 unset($_SESSION['DescriptionInvalide']);
 unset($_SESSION['URLInvalide']);
 
+
+
 if(isset($_POST['delete']))
 {
-    $titre = $_POST['Titre'];
-    $description = $_POST['Description'];
-    $url = $_POST['URL'];
+    // $titre = $_POST['Titre'];
+    // $description = $_POST['Description'];
+    // $url = $_POST['URL'];
 
     $_SESSION['favorisValide'] = true;
     if($titre.trim(" ") == "" || $titre == null)//manque probablement des vérifications
@@ -35,8 +37,11 @@ if(isset($_POST['delete']))
         header('DeleteForm.php');
         exit();
     }
-
-}
+    else
+    {
+        deleteBookmark($_POST['Id']);
+    }
+} 
 header('Location:List.php');
 exit();
 ?>

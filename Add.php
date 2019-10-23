@@ -16,14 +16,14 @@ if(isset($_POST['ajouter']))
     $url = $_POST['URL'];
     $fichier = "data/bookmarks.txt";
 
-    $donneesPost['Id']             = $_SESSION['idFavoris'];
-    $donneesPost['Title']          = sanitizeString($titre);
-    $donneesPost['Description']    = sanitizeString($description);
-    $donneesPost['Url']            = sanitizeString($url);
-    $donneesPost['Source']         = $_COOKIE['Nom']; 
+    $bookmarks['Id'] = $_SESSION['idFavoris'];
+    $bookmarks['Title'] = sanitizeString($titre);
+    $bookmarks['Description'] = sanitizeString($description);
+    $bookmarks['Url'] = sanitizeString($url);
+    $bookmarks['Source'] = $_COOKIE['Nom']; 
 
     $_SESSION['favorisValide'] = true;
-    if($donneesPost['Title'] == "")//manque probablement des vérifications
+    if($bookmarks['Title'] == "")//manque probablement des vérifications
     {
         $_SESSION['favorisValide'] = false;
         $_SESSION['TitreInvalide'] = 'Le Titre est invalide';
@@ -47,7 +47,7 @@ if(isset($_POST['ajouter']))
     }
     else
     {
-        addBookmark($donneesPost);
+        addBookmark($bookmarks);
     }
 
 }
