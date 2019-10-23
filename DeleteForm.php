@@ -8,6 +8,8 @@ $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : ''
 $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInvalide'] : '';
 $UrlError = isset($_SESSION['URLInvalide'])? $_SESSION['URLInvalide'] : '';
 
+$id = $_GET['Id'];
+
 $content = "<div style=\"display:inline\">";
 $content .= html_open("h3");
 $content .="Retrait de favori";
