@@ -2,6 +2,7 @@
 require_once 'SessionTimeOut.php';
 session_start();
 require 'VerificationAcessIllegalEtSessionExpiree.php';
+include_once "DAL/bookmarks.php";
 
 unset($_SESSION['TitreInvalide']);
 unset($_SESSION['DescriptionInvalide']);
@@ -39,9 +40,8 @@ if(isset($_POST['delete']))
     } 
     else
     {
-        deleteBookmark($_GET['Id']);
+        deleteBookmark($_SESSION['idDelete']);
     }
 } 
 header('Location:List.php');
-exit();
 ?>

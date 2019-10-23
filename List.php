@@ -40,15 +40,20 @@ foreach($bookmarks as $ligne)
         
         if ($ligne["Id"] != $value)
         {
-            if($key2 == 2)
+            if($value == $ligne['Url'])
             {
                 $content .= html_open("div");
-                $content .= html_faviconLinkFromUrl($bookmark['Url']);
+                $content .= "<img src='https://s2.googleusercontent.com/s2/favicons?domain=$value'>";
+                $content .= $value;
                 $content .= html_close("div");
             }
-            $content .= html_open("div");
-            $content .= $value;
-            $content .= html_close("div");
+            else
+            {
+                $content .= html_open("div");
+                $content .= $value;
+                $content .= html_close("div");
+            }
+           
 
 
         }
