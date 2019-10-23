@@ -21,19 +21,20 @@ if(isset($_POST['ajouter']))
     $bookmarks['Description'] = sanitizeString($description);
     $bookmarks['Url'] = sanitizeString($url);
     $bookmarks['Source'] = $_COOKIE['Nom']; 
+    //$bookmarks['Title'] == ""
 
     $_SESSION['favorisValide'] = true;
-    if($bookmarks['Title'] == "")//manque probablement des vérifications
+    if(str_word_count($titre,0) == 0)
     {
         $_SESSION['favorisValide'] = false;
         $_SESSION['TitreInvalide'] = 'Le Titre est invalide';
     }
-    else if($description.trim(" ") == "" || $description == null)//manque probablement des vérifications
+    else if(trim($description) == "" || $description == null)
     {
         $_SESSION['favorisValide'] = false;
         $_SESSION['DescriptionInvalide'] = 'La description est invalide';
     }
-    else if($url.trim(" ") == "" || $url == null)//manque probablement des vérifications
+    else if(trim($url) == "" || $url == null)
     {
         $_SESSION['favorisValide'] = false;
         $_SESSION['URLInvalide'] = 'L`url donnée est invalide';
