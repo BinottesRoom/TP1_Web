@@ -43,7 +43,7 @@ foreach($bookmarks as $ligne)
             if($value == $ligne['Url'])
             {
                 $content .= html_open("div");
-                $content .= "<img src='https://s2.googleusercontent.com/s2/favicons?domain=$value'>";
+                $content .= "<a href='$value'><img src='https://s2.googleusercontent.com/s2/favicons?domain=$value'></a>";
                 $content .= $value;
                 $content .= html_close("div");
             }
@@ -53,29 +53,14 @@ foreach($bookmarks as $ligne)
                 $content .= $value;
                 $content .= html_close("div");
             }
-           
-
-
         }
 
     }
-
-    
-    // $shortUrl = str_replace('http://', '', $ligne['Url']);
-    // $shortUrl = str_replace('https://', '', $shortUrl);
-    // $content .= '<div class="bookmark-cell">'.$ligne['Title'].'</div>';
-    // $content .= '<div class="bookmark-cell">'.$ligne['Description'].'</div>';
-    // $content .= '<div class="favicon-cell">'.html_faviconLinkFromUrl($ligne['Url']).html_link($ligne['Url'], $shortUrl, '_blank').'</div>';
-
-    // $content .= '<div class="icon-cell">'.html_icon('images/Modify.png', 'editForm.php?id='.$ligne['Id'], 'Modifier '.$ligne['Title'], 'left').'</div>';
-    // $content .= '<div class="icon-cell">'.html_icon('images/Erase.png', 'deleteForm.php?id='.$ligne['Id'], 'Effacer '.$ligne['Title'], 'left').'</div>';
 
     $id = $ligne['Id'];
     $content .= html_open("div")."<a href='EditForm.php?id=$id'><img src='images/Modify.png' alt='Ajouter'>".html_close("a").html_close("div");
     $content .= html_open("div")."<a href='DeleteForm.php?id=$id'><img src='images/Erase.png' alt='Effacer'>".html_close("a").html_close("div");
     $content .= html_close("div");
-
-
     $content .= "<form method='post' action='DeleteForm.php'></form>";
     unset($value);
 }
