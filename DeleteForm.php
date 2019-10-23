@@ -10,6 +10,13 @@ $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInva
 $UrlError = isset($_SESSION['URLInvalide'])? $_SESSION['URLInvalide'] : '';
 
 $id = $_GET['id'];
+$fd = findBookmark($id);
+if($fd['Source'] != $_COOKIE['Nom'])
+{
+    header('LoginForm.php');
+    exit();
+}
+
 $_SESSION['idDelete'] = $id;
 $bookmarksDelete = findBookmark($id);
 
