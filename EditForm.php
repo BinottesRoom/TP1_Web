@@ -9,6 +9,16 @@ $TitreError = isset($_SESSION['TitreInvalide'])? $_SESSION['TitreInvalide'] : ''
 $DescError = isset($_SESSION['DescriptionInvalide'])? $_SESSION['DescriptionInvalide'] : '';
 $UrlError = isset($_SESSION['URLInvalide'])? $_SESSION['URLInvalide'] : '';
 
+
+$id = $_GET['Id'];
+$fd = findBookmark($id);
+
+if($fd['Source'] != $_COOKIE['Nom'])
+{
+    header('LoginForm.php');
+    exit();
+}
+
 $content = "<div style=\"display:inline\">";
 $content .= html_open("h3");
 $content .="Modification de favori";

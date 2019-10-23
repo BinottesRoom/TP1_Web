@@ -8,9 +8,6 @@ unset($_SESSION['DescriptionInvalide']);
 unset($_SESSION['URLInvalide']);
 
 
-$id = $_GET['Id'];
-
-
 if(isset($_POST['modifier']))
 {
     $titre = $_POST['Titre'];
